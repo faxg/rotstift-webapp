@@ -4,6 +4,8 @@ import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
+import { CameraProvider } from "./components/camera/camera-provider";
+
 export const metadata: Metadata = {
   title: "Rotstift Webapp",
   description: "Support teachers with essay correction",
@@ -16,7 +18,9 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <CameraProvider>{children}</CameraProvider>
+        </body>
     </html>
   );
 }
