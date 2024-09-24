@@ -1,16 +1,10 @@
 [![image](https://res.cloudinary.com/dvgb6dadg/image/upload/v1719326274/turborepo-tailwindcss-shadcn-ui/cover-turborepo-project_vfha54.png)](https://github.com/henriqpohl/turborepo-shadcn-ui-tailwindcss.git)
 
-# 🚀 Turborepo starter NextJS with Shadcn/UI & Tailwind CSS
+# 🚀 Rotstift - AI Assistant for essay feedback
 
 <div align="center">
 
-![Static Badge](https://img.shields.io/badge/Turborepo-2.0.14-orangered?logo=turborepo&link=https%3A%2F%2Fgithub.com%2Fvercel%2Fturbo%2Freleases%2Ftag%2Fv2.0.14)
-![Static Badge](https://img.shields.io/badge/1.0-181818?logo=shadcn%2Fui&label=shadcn%2Fui)
-![Static Badge](https://img.shields.io/badge/4.0-blue?&logo=tailwindcss&label=Tailwind%20CSS&color=blue)
-![Static Badge](https://img.shields.io/badge/14.2.4-181818?logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyBmaWxsPSJ3aGl0ZSIgcm9sZT0iaW1nIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI%2BPHRpdGxlPk5leHQuanM8L3RpdGxlPjxwYXRoIGQ9Ik0xOC42NjUgMjEuOTc4QzE2Ljc1OCAyMy4yNTUgMTQuNDY1IDI0IDEyIDI0IDUuMzc3IDI0IDAgMTguNjIzIDAgMTJTNS4zNzcgMCAxMiAwczEyIDUuMzc3IDEyIDEyYzAgMy41ODMtMS41NzQgNi44MDEtNC4wNjcgOS4wMDFMOS4yMTkgNy4ySDcuMnY5LjU5NmgxLjYxNVY5LjI1MWw5Ljg1IDEyLjcyN1ptLTMuMzMyLTguNTMzIDEuNiAyLjA2MVY3LjJoLTEuNnY2LjI0NVoiLz48L3N2Zz4%3D&label=NextJS)
-![Static Badge](https://img.shields.io/badge/pnpm-9.8.0-orange?link=https%3A%2F%2Fgithub.com%2Fpnpm%2Fpnpm%2&logo=PNPM&2Freleases%2Ftag%2Fv9.8.0)
-![GitHub repo size](https://img.shields.io/github/repo-size/henriqpohl/turborepo-shadcn-ui-tailwindcss?color=green)
-![GitHub Release](https://img.shields.io/github/v/release/henriqpohl/turborepo-shadcn-ui-tailwindcss?color=gold)
+
 
 </div>
 
@@ -41,7 +35,6 @@ pnpm install
 
 ## 📦 What's inside?
 
-This Turborepo includes the following packages/apps:
 
 ### Apps and Packages 
 

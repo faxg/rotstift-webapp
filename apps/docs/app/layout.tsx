@@ -8,7 +8,7 @@ import { CameraProvider } from "./components/camera/camera-provider";
 
 export const metadata: Metadata = {
   title: "Rotstift Webapp",
-  description: "Support teachers with essay correction",
+  description: "AI Assistant for personalized essay feedback",
 };
 
 export default function RootLayout({

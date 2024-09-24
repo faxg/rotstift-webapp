@@ -8,6 +8,9 @@ import DocumentScannerComponent from "./components/DocumentScannerComponent"
 import ResultViewerComponent from './components/ResultViewerComponent';
 import { CogIcon, PenLineIcon, PenIcon, ClipboardPenLineIcon, SearchCheckIcon, BookOpenCheckIcon, WandSparklesIcon } from 'lucide-react';
 
+import { Toaster } from "@ui/components/ui/toaster"
+import { useToast } from "@ui/hooks/use-toast"
+
 
 import ClipLoader from "react-spinners/ClipLoader";
 
@@ -19,28 +22,66 @@ export default function Page(): JSX.Element {
   const [isAnalyzing, setIsAnalyzing] = useState<boolean>(false)
   const [resultsReady, setResultsReady] = useState<boolean>(false)
 
-  const [isCreatingRecommendations, setIsCreatingRecommendations] = useState<boolean>(false)
-  const [recommendations, setRecommendations] = useState<string[]>([]);
+  const [isRunningConference, setIsRunningConference] = useState<boolean>(false)
+  const [essayReport, setEssayReport] = useState<string[]>([]);
 
+  const { toast } = useToast()
+
+  const showError = (error: any) => {
+    console.error("Error:", error);
+    toast({ title: "Error while analyzing images", description: String(error) })
+  }
 
   const analyzeImages = (images: string[]) => {
     setIsAnalyzing(true)
 
-    setTimeout(() => {
-      setIsAnalyzing(false);
-      setResultsReady(true)
-    }, 5000)
+    // TODO
+    // call /api/analyzeImages via POST
+    // with the image(s) as payload (base64 encoded) in the json body
+    // reponse will be the analysis results, e.g. a Markdown string from the OCR 
+    // plus metadata like detected spelling or grammar mistakes with locations in the original image to 
+    // add markers to the image
+    let jsonData = JSON.stringify({ images });
+    console.log ("jsonData", jsonData)
+
+    fetch("/api/analyzeImages", {
+      method: "POST",
+      body: jsonData,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setResultsReady(true);
+      })
+      .catch((error) => {
+        showError(error);
+
+      })
+      .finally(() => {
+        setIsAnalyzing(false);
+      });
+
+    // setTimeout(() => {
+    //   setIsAnalyzing(false);
+    //   setResultsReady(true)
+    // }, 5000)
   }
 
 
-  const createRecommendations = () => {
-    setIsCreatingRecommendations(true)
+  const runConference = () => {
+    setIsRunningConference(true)
+    // TODO
+    // call /api/runConference via POST
+    // and receive the recommendations as response, as a list of Markdown strings per page
 
     setTimeout(() => {
       const recommendations = ["Markdown for Page 1", "Markdown for Page 2"]
-      setIsCreatingRecommendations(false);
-      setRecommendations(recommendations)
-    }, 2000)
+      setIsRunningConference(false);
+      setEssayReport(recommendations)
+    }, 5000)
   }
 
 
@@ -120,7 +161,7 @@ export default function Page(): JSX.Element {
                           </div>
                         </ResultViewerComponent>
 
-                        <Button variant="default" onClick={e => createRecommendations()}>
+                        <Button variant="default" onClick={e => runConference()}>
                           <WandSparklesIcon className="mr-2 h-5 w-5" />
                           Generate personalized feedback...
                           <span className="sr-only">Recommendations</span>
@@ -128,10 +169,10 @@ export default function Page(): JSX.Element {
                       </>
                     )}
 
-                    {isCreatingRecommendations && (
+                    {isRunningConference && (
                       <>
                         <ClipLoader
-                          loading={isCreatingRecommendations}
+                          loading={isRunningConference}
                           color={"red"}
                           cssOverride={{
                             display: "block",
@@ -154,6 +195,8 @@ export default function Page(): JSX.Element {
           </div>
         </div>
       </div>
+      <Toaster />
+
     </main>
   )
 }
